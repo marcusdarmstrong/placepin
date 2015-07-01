@@ -6,8 +6,8 @@
     
     var defaultOptions = function() {
         return {
-            //zoom: 3,
-            //center: new google.maps.LatLng(0, 0),
+            zoom: 4,
+            center: new google.maps.LatLng(0, 0),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             disableDefaultUI: true/*,
             styles: styles*/
