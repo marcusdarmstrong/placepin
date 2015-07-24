@@ -1,25 +1,17 @@
-(function(init) {
-    init(window.jQuery, window._, window, document);
-}(function($, _, window, document) {
-    var doEventBinding = function(map) {
+((document, google) => {
+  let defaultOptions = () => {
+    return {
+      zoom: 4,
+      center: new google.maps.LatLng(0, 0),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true/*,
+      styles: styles*/
     };
+  };
     
-    var defaultOptions = function() {
-        return {
-            zoom: 4,
-            center: new google.maps.LatLng(0, 0),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            disableDefaultUI: true/*,
-            styles: styles*/
-        };
-    };
+  let initializeMap = (options) => {
+    let map = new google.maps.Map(document.querySelector('#map'), options);
+  };
     
-    var initializeMap = function(options) {
-        var map = new google.maps.Map($('#map')[0], options);
-        doEventBinding(map);
-    };
-    
-    $(function() {
-        initializeMap(defaultOptions());
-    });
-}));
+  document.addEventListener('DOMContentLoaded', () => initializeMap(defaultOptions()));
+}))(document, google);
