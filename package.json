@@ -26,6 +26,8 @@
     "gulp-uglify": "latest",
     "gulp-babel": "latest",
     "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest"
+    "gulp-sourcemaps": "latest",
+    "babel-eslint": "latest",
+    "eslint-plugin-react": "latest"
   }
 }
