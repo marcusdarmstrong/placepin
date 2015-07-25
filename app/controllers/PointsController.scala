@@ -3,14 +3,14 @@ package controllers
 import play.api._
 import play.api.mvc._
 
-class Application extends Controller {
+class PointsController extends Controller {
 
-  def index = Action {
+  def addPoint = Action {
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def showTrip(id: Long) = Action {
+  def deletePoint(id: Long) = Action {
     Ok(views.html.index("Your new application is ready."))
   }
-  
+
 }

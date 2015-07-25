@@ -6,12 +6,12 @@
 GET     /                           controllers.Application.index
 GET     /:id                        controllers.Application.showTrip(id: Long)
 
-POST    /api/v1/point                     controllers.Application.addPoint
-POST    /api/v1/annotation                controllers.Application.addAnnotation
-PUT     /api/v1/annotation/:id            controllers.Application.updateAnnotation(id: Long)
-GET     /api/v1/trip/:id 				  controllers.Application.getTrip(id: Long)
-GET     /api/v1/point/:postId/annotations controllers.Application.getAnnotations(postId: Long)
-DELETE  /api/v1/point/:id                 controllers.Application.deletePoint(id: Long)
+POST    /api/v1/point               controllers.PointsController.addPoint
+POST    /api/v1/note                controllers.NotesController.addNote
+PUT     /api/v1/note/:id            controllers.NotesController.updateNote(id: Long)
+GET     /api/v1/trip/:id 				    controllers.TripsController.getTrip(id: Long)
+GET     /api/v1/point/:postId/notes controllers.NotesController.getNotes(postId: Long)
+DELETE  /api/v1/point/:id           controllers.PointsController.deletePoint(id: Long)
 
 
 
