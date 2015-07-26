@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/placepin-io -Dhttp.port=${PORT} 
+web: target/universal/stage/bin/placepin-io -Dhttp.port=${PORT} -Dslick.dbs.default.db.url="${DATABASE_URL_JDBC}" -Dslick.dbs.default.db.user="${DATABASE_USER}" -Dslick.dbs.default.db.password="${DATABASE_PASS}"
