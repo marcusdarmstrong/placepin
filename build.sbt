@@ -7,7 +7,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  jdbc,
+  //jdbc,
   cache,
   ws,
   specs2 % Test,
@@ -15,6 +15,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick" % "1.0.0",
   "com.typesafe.play" %% "play-slick-evolutions" % "1.0.0"
 )
+libraryDependencies += "postgresql" % "postgresql" % "9.1-901-1.jdbc4"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
