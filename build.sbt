@@ -1,4 +1,4 @@
-name := """play-scala"""
+name := """placepin-io"""
 
 version := "1.0-SNAPSHOT"
 
