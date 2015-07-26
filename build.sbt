@@ -13,9 +13,9 @@ libraryDependencies ++= Seq(
   specs2 % Test,
   "com.typesafe.slick" %% "slick" % "3.0.0",
   "com.typesafe.play" %% "play-slick" % "1.0.0",
-  "com.typesafe.play" %% "play-slick-evolutions" % "1.0.0"
+  "com.typesafe.play" %% "play-slick-evolutions" % "1.0.0",
+  "postgresql" % "postgresql" % "9.1-901-1.jdbc4"
 )
-libraryDependencies += "postgresql" % "postgresql" % "9.1-901-1.jdbc4"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
