@@ -3,6 +3,12 @@ name := """placepin-io"""
 version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
+//lazy val gulp = "gulp" //"gulp" !
+
+lazy val gulp = taskKey[Unit]("Runs gulp on the current dir")
+
+gulp := { "node_modules/.bin/gulp" ! }
+compile <<= (compile in Compile) dependsOn gulp
 
 scalaVersion := "2.11.6"
 
@@ -27,3 +33,4 @@ routesGenerator := InjectedRoutesGenerator
 
 
 fork in run := true
+
