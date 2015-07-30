@@ -18,7 +18,7 @@ gulp.task('lint', function() {
 gulp.task('javascript', function() {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
-      .pipe(babel())
+      .pipe(babel({ blacklist: ['strict'] }))
       .pipe(uglify())
       .pipe(concat('app.js'))
     .pipe(sourcemaps.write('./maps'))
