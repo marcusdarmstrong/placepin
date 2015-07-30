@@ -9,14 +9,14 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('lint', function() {
-  return gulp.src(['src/js/app/*.js'])
+  return gulp.src(['src/js/app/main.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
 gulp.task('javascript', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src(['src/js/lib/react.js', 'src/js/lib/react-redux.js', 'src/js/lib/redux.js', 'src/js/lib/immutable.js', 'src/js/lib/alhoa.min.js', 'src/js/app/main.js'])
     .pipe(sourcemaps.init())
       .pipe(babel({ ignore: ['src/js/lib/*.js'] }))
       .pipe(uglify())
