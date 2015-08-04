@@ -4,3 +4,4 @@ scala:
 jdk:
     - oraclejdk8
 script: sbt compile
+before_install: npm install
