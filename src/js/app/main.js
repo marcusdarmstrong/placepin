@@ -4,10 +4,14 @@
   const defaultOptions = () => {
     return {
       zoom: 5,
-      center: new window.google.maps.LatLng(39.50, -98.35),
+      center: new window.google.maps.LatLng(39, -97),
       mapTypeId: window.google.maps.MapTypeId.ROADMAP,
-      disableDefaultUI: true,/*
-      styles: styles*/
+      /*styles: styles*/
+      panControl: false,
+      mapTypeControl: false,
+      scaleControl: true,
+      streetViewControl: false,
+      overviewMapControl: false
     };
   };
 
