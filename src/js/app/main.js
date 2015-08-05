@@ -1,3 +1,5 @@
+import GoogleBaseMap from './GoogleBaseMap.js';
+
 ((document, window) => {
   const defaultOptions = () => {
     return {
@@ -31,7 +33,6 @@
   };
 
   const dropPin = (position, map) => {
-    map.panTo(position);
     return new window.google.maps.Marker({
       position: position,
       map: map,
@@ -39,13 +40,13 @@
   };
 
   const bindEvents = (map) => {
-    window.google.maps.event.addListener(map, 'click', (evt) => {
-      dropPin(evt.latLng, map);
+    map.on('singleclick', (e) => {
+      dropPin(e.latLng, map);
     });
   };
 
   const initializeMap = (options) => {
-    return bindEvents(new window.google.maps.Map(document.querySelector('#map'), options));
+    return bindEvents(new GoogleBaseMap(window.google.maps, document.querySelector('#map'), options));
   };
 
   document.addEventListener('DOMContentLoaded', () => initializeMap(defaultOptions()));

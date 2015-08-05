@@ -5,7 +5,11 @@ version := "1.0-SNAPSHOT"
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 lazy val gulp = taskKey[Unit]("Runs gulp on the current dir")
-gulp := { "node_modules/.bin/gulp" ! }
+gulp := { 
+  if (("node_modules/.bin/gulp" !) != 0) { 
+    error("gulp failed") 
+  } 
+}
 compile <<= (compile in Compile) dependsOn gulp
 
 scalaVersion := "2.11.6"
