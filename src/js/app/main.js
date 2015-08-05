@@ -1,5 +1,3 @@
-/* @flow */
-
 ((document, window) => {
   const defaultOptions = () => {
     return {
@@ -8,26 +6,26 @@
       mapTypeId: window.google.maps.MapTypeId.ROADMAP,
       styles: [
         {
-          "stylers": [
-            { "saturation": -50 }
-          ]
-        },{
-          "featureType": "poi.park",
-          "stylers": [
-            { "saturation": 15 }
-          ]
-        },{
-          "featureType": "road",
-          "stylers": [
-            { "visibility": "simplified" }
-          ]
-        }
+          'stylers': [
+            { 'saturation': -50 },
+          ],
+        }, {
+          'featureType': 'poi',
+          'stylers': [
+            { 'visibility': 'off' },
+          ],
+        }, {
+          'featureType': 'road',
+          'stylers': [
+            { 'visibility': 'simplified' },
+          ],
+        },
       ],
       panControl: false,
       mapTypeControl: false,
       scaleControl: true,
       streetViewControl: false,
-      overviewMapControl: false
+      overviewMapControl: false,
     };
   };
 
