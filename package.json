@@ -30,6 +30,9 @@
     "babel-eslint": "latest",
     "eslint-plugin-react": "latest",
     "del": "latest",
-    "amd-optimize": "latest"
+    "browserify": "latest",
+    "babelify": "latest",
+    "vinyl-source-stream": "latest",
+    "vinyl-buffer": "latest"
   }
 }
