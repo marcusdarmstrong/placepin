@@ -29,6 +29,7 @@
     "gulp-sourcemaps": "latest",
     "babel-eslint": "latest",
     "eslint-plugin-react": "latest",
-    "del": "latest"
+    "del": "latest",
+    "amd-optimize": "latest"
   }
 }

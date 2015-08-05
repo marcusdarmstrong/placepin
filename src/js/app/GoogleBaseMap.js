@@ -3,7 +3,6 @@ export default class GoogleBaseMap {
     this.api = api;
     this.opts = opts;
     this.map = new api.Map(elmt, this.opts);
-
   }
 
   on(name, handler) {
@@ -18,10 +17,10 @@ export default class GoogleBaseMap {
     let clickTimer;
     let lastClickTime = 0;
 
-    this.on('click', (e) => (e) {
-      var clickTime = +new Date();
+    this.on('click', (e) => {
+      const clickTime = +new Date();
 
-      if(clickTime - lastClickTime > 400) {
+      if (clickTime - lastClickTime > 400) {
         this.trigger('firstclick', e);
         clickTimer = setTimeout(() => this.trigger('singleclick', e), delay);
       } else {
@@ -31,7 +30,7 @@ export default class GoogleBaseMap {
       lastClickTime = clickTime;
     });
 
-    this.on('dblclick', (e) => {
+    this.on('dblclick', () => {
       clearTimeout(clickTimer);
       lastClickTime = +new Date();
     });

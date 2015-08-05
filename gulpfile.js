@@ -8,26 +8,37 @@ var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 
 gulp.task('clean', function(cb) {
   del(['build'], cb);
 });
 
 gulp.task('lint', function() {
-  return gulp.src(['src/js/app/main.js'])
+  return gulp.src(['src/js/app/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
 gulp.task('javascript', ['clean', 'lint'], function() {
-  return gulp.src(['src/js/lib/react.js', 'src/js/lib/react-redux.js', 'src/js/lib/redux.js', 'src/js/lib/immutable.js', 'src/js/lib/alhoa.min.js', 'src/js/app/main.js'])
-    .pipe(sourcemaps.init())
-      .pipe(babel({ ignore: ['src/js/lib/*.js'] }))
+  return browserify({ debug: true })
+    .transform(babelify)
+    .require('src/js/app/main.js', { entry: true })
+    .bundle()
+    .on('error', function handleError(err) {
+      console.error(err.toString());
+      this.emit('end');
+    })
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
-      .pipe(concat('app.js'))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./public/javascripts'));
+    .pipe(gulp.dest('public/javascripts'));
 });
 
 gulp.task('sass', ['clean'], function() {
