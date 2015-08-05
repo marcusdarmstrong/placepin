@@ -7,6 +7,11 @@ var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var del = require('del');
+
+gulp.task('clean', function(cb) {
+  del(['build'], cb);
+});
 
 gulp.task('lint', function() {
   return gulp.src(['src/js/app/main.js'])
@@ -15,7 +20,7 @@ gulp.task('lint', function() {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('javascript', function() {
+gulp.task('javascript', ['clean', 'lint'], function() {
   return gulp.src(['src/js/lib/react.js', 'src/js/lib/react-redux.js', 'src/js/lib/redux.js', 'src/js/lib/immutable.js', 'src/js/lib/alhoa.min.js', 'src/js/app/main.js'])
     .pipe(sourcemaps.init())
       .pipe(babel({ ignore: ['src/js/lib/*.js'] }))
@@ -25,7 +30,7 @@ gulp.task('javascript', function() {
     .pipe(gulp.dest('./public/javascripts'));
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', ['clean'], function() {
   return gulp.src('src/sass/**/*.scss')
     .pipe(sourcemaps.init())
       .pipe(sass({outputStyle: 'compressed'}))
@@ -34,4 +39,4 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./public/stylesheets'));
 });
 
-gulp.task('default', ['lint', 'javascript', 'sass']);
+gulp.task('default', ['javascript', 'sass']);
