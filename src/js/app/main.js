@@ -26,6 +26,7 @@
       scaleControl: true,
       streetViewControl: false,
       overviewMapControl: false,
+      zoomControl: false,
     };
   };
 
