@@ -18,9 +18,10 @@ export default class GoogleBaseMap {
     let lastClickTime = 0;
 
     this.on('click', (e) => {
+      const delay = 400
       const clickTime = +new Date();
 
-      if (clickTime - lastClickTime > 400) {
+      if (clickTime - lastClickTime > delay) {
         this.trigger('firstclick', e);
         clickTimer = setTimeout(() => this.trigger('singleclick', e), delay);
       } else {
