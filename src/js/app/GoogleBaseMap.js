@@ -18,7 +18,7 @@ export default class GoogleBaseMap {
     let lastClickTime = 0;
 
     this.on('click', (e) => {
-      const delay = 400
+      const delay = 400;
       const clickTime = +new Date();
 
       if (clickTime - lastClickTime > delay) {
