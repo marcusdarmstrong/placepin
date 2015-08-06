@@ -3,6 +3,7 @@ export default class GoogleBaseMap {
     this.api = api;
     this.opts = opts;
     this.map = new api.Map(elmt, this.opts);
+    _addSingleClickEvents();
   }
 
   on(name, handler) {
