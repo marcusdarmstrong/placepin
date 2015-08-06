@@ -16,7 +16,7 @@ export default class GoogleBaseMap {
 
   addMarker(lat, lng) {
     return !!(new this.api.Marker({
-      position: new this.api.LatLng(lat, lng),
+      position: new this.api.LatLng(lat(), lng()),
       map: this.map,
     }));
   }
