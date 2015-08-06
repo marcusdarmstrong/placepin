@@ -21,6 +21,12 @@ import GoogleBaseMap from './GoogleBaseMap.js';
           'stylers': [
             { 'visibility': 'simplified' },
           ],
+        }, {
+          'featureType': 'transit',
+          'elementType': 'labels',
+          'stylers': [
+            { 'visibility': 'off' },
+          ],
         },
       ],
       panControl: false,
