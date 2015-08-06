@@ -6,11 +6,11 @@ export default class GoogleBaseMap {
   }
 
   on(name, handler) {
-    api.event.addListener(this.map, name, handler);
+    this.api.event.addListener(this.map, name, handler);
   }
 
   trigger(name, e) {
-    api.event.trigger(this.map, name, e);
+    this.api.event.trigger(this.map, name, e);
   }
 
   _addSingleClickEvents() {

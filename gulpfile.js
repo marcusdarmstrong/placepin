@@ -13,8 +13,8 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-gulp.task('clean', function(cb) {
-  del(['build'], cb);
+gulp.task('clean', function() {
+  del(['public/javascripts/*.js', 'public/javascripts/maps/*.map', 'public/stylesheets/*.css', 'public/stylesheets/maps/*.map']);
 });
 
 gulp.task('lint', function() {
