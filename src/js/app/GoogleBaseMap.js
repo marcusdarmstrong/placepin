@@ -14,6 +14,13 @@ export default class GoogleBaseMap {
     this.api.event.trigger(this.map, name, e);
   }
 
+  addMarker(lat, lng) {
+    return !!(new this.api.Marker({
+      position: new this.api.LatLng(lat, lng),
+      map: this.map,
+    }));
+  }
+
   _addSingleClickEvents() {
     let clickTimer;
     let lastClickTime = 0;

@@ -32,16 +32,9 @@ import GoogleBaseMap from './GoogleBaseMap.js';
     };
   };
 
-  const dropPin = (position, map) => {
-    return new window.google.maps.Marker({
-      position: position,
-      map: map,
-    });
-  };
-
   const bindEvents = (map) => {
     map.on('singleclick', (e) => {
-      dropPin(e.latLng, map);
+      map.addMarker(e.latLng.lat, e.latLng.lng);
     });
   };
 
