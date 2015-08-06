@@ -41,7 +41,7 @@ import GoogleBaseMap from './GoogleBaseMap.js';
 
   const bindEvents = (map) => {
     map.on('singleclick', (e) => {
-      map.addMarker(e.latLng.lat, e.latLng.lng);
+      map.addMarker(e.latLng.lat(), e.latLng.lng());
     });
   };
 
