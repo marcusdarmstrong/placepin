@@ -27,7 +27,7 @@ gulp.task('lint', function() {
 gulp.task('javascript', ['clean', 'lint'], function() {
   return browserify({ debug: true })
     .transform(babelify)
-    .require('src/js/app/main.js', { entry: true })
+    .require('src/js/app/react.js', { entry: true })
     .bundle()
     .on('error', function handleError(err) {
       console.error(err.toString());
