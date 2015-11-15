@@ -21,10 +21,23 @@ import GoogleBaseMap from './GoogleBaseMap.js';
           'stylers': [
             { 'visibility': 'simplified' },
           ],
+        }, {
+          'featureType': 'transit',
+          'elementType': 'labels',
+          'stylers': [
+            { 'visibility': 'off' },
+          ],
         },
       ],
       panControl: false,
-      mapTypeControl: false,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: window.google.maps.MapTypeControlStyle.DEFAULT,
+        mapTypeIds: [
+          window.google.maps.MapTypeId.ROADMAP,
+          window.google.maps.MapTypeId.TERRAIN,
+        ],
+      },
       scaleControl: true,
       streetViewControl: false,
       overviewMapControl: false,
